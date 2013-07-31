@@ -1,0 +1,14 @@
+- atts = {} if atts.nil?
+- atts.default_proc = proc {|hash, key| hash[key] = {} } if atts.default_proc.nil?
+- inners = {} if inners.nil?
+- inners.default = "" if inners.default.nil?
+- @campo_tabindex ||= 0 # for tabindex
+
+
+%form{ atts[:contact], id: "contact", method: "POST", class: "form", title: "Participants", name: "contact", role: "form",  }
+  %label{ for: "name",  }
+    Name
+    %input{ atts[:name], tabindex: "#{@campo_tabindex += 1}", id: "name", type: "text", name: "name",  }
+  %input{ atts[:submit], tabindex: "#{@campo_tabindex += 1}", id: "submit", type: "submit", value: "submit",  }
+
+%script{ src: "/js/main.js"}
